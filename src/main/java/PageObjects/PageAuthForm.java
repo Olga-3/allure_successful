@@ -20,7 +20,7 @@ public class PageAuthForm {
     public void openPage(String url) {
         driver.get(url);
         log.trace("Выполнен вход на страницу: " + url);
-        System.out.println("Выполнен вход на страницу: " + url);
+        //System.out.println("Выполнен вход на страницу: " + url);
     }
 
     //FindBy нужна вместо обращения к вебдрайверу для поиска веб элемента

@@ -28,20 +28,19 @@ public class MyStepdefs {
     private WebDriver driver;
     private WebDriverWait waiter;
     private PageAuthForm page = new PageAuthForm();
-
-
+    private final Logger log = LogManager.getLogger(getClass());
 
     @Before
     public void beforeScenario(Scenario scenario)
     {
-        page.log.info("Запуск сценария " + scenario.getName());
+        log.info("Запуск сценария " + scenario.getName());
         System.out.println("Запуск сценария " + scenario.getName());
         driver = WebDriverManager.getDriver();
         waiter = new WebDriverWait(driver, 10);
     }
     @After
     public void afterScenario(Scenario scenario) {
-        page.log.info("Завершено выполнение сценария " + scenario.getName());
+        log.info("Завершено выполнение сценария " + scenario.getName());
         WebDriverManager.quit();
         waiter = null;
     }
@@ -143,7 +142,7 @@ public class MyStepdefs {
         try {
             driver.switchTo().alert().accept();
         } catch (NoAlertPresentException e) {
-            page.log.error("No expected Alert",e);
+            log.error("No expected Alert",e);
         }
     }
 

@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import ru.lanit.framework.webdriver.WebDriverManager;
 
 public class PageAuthForm {
-    public final Logger log = LogManager.getLogger(getClass());
+    private final Logger log = LogManager.getLogger(getClass());
     private WebDriver driver;
 
     public PageAuthForm() {

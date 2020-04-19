@@ -1,5 +1,6 @@
 package ru.lanit.framework.steps;
 
+import Helpers.ConfigReader;
 import PageObjects.PageAuthForm;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -16,6 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 import ru.lanit.framework.webdriver.WebDriverManager;
+import org.openqa.selenium.WebElement;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -33,6 +35,8 @@ public class MyStepdefs {
     private WebDriverWait waiter;
     private PageAuthForm page = new PageAuthForm();
     private final Logger log = LogManager.getLogger(getClass());
+
+   // protected final Wait<Webdriver> wait = new
 
 //    public void addScreenshot(String title) {
 //        try {
@@ -172,4 +176,28 @@ public class MyStepdefs {
         Allure.addAttachment("Exit profile", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
     }
 
+    //тут реализация шагов сценария HelloWorld
+
+    @Пусть("я открыл браузер и ввел адрес сайта")
+    public void openedBrowserAndEnteredUrl() throws IOException{
+        page.openPage(ConfigReader.getStringSystemProperty("url"));
+    }
+
+    // в этом шаге проблемный метод get
+//    @И("я ввел поисковый запрос в \"(.*)\"$")
+//    public void enteredText(String string) throws InterruptedException{
+//        WebElement webElement = page.get(string);
+//        waiter.until(ExpectedConditions.visibilityOf(webElement));
+//        webElement.click();
+//        try {
+//            webElement.sendKeys(ConfigReader.getStringSystemProperty("searchWord"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+
+    @И("я нажал кнопку \"(.*)\"$")
+    public void pressedButton() {
+    }
 }

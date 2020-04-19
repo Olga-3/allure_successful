@@ -24,6 +24,7 @@ public class WebDriverManager {
     public static WebDriver getDriver() {
         if (driver == null) {
             System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
+            //System.setProperty("webdriver.chrome.driver", ConfigReader.getStringSystemProperty ("chrome.driver.path"));
             try {
                 ChromeOptions option = new ChromeOptions();
                 option.addArguments("--window-size=1920,1080");
